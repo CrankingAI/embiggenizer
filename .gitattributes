@@ -1,0 +1,4 @@
+# Check everything out with LF, on every OS. Git for Windows defaults to
+# core.autocrlf=true, which would hand the scripts CRLF line endings that
+# bash rejects. Binary files are detected automatically by text=auto.
+* text=auto eol=lf

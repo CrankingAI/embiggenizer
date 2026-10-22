@@ -1,0 +1,26 @@
+// Markdown lint policy for this repo's skills and docs.
+//
+// Kept identical to the canonical baseline in
+// DevPartners/meta-agent-md@seed/.markdownlint.jsonc — five of these skills were
+// authored under it and moved here, and a skill that lints clean in one repo and
+// dirty in the other is a false signal in both. If that baseline changes, change
+// this with it.
+{
+  "default": true,
+
+  // Line length: prose wraps freely; we do not hard-wrap at a column.
+  "MD013": false,
+
+  // Emphasis-as-heading: allowed (some doc patterns use bold lead-ins).
+  "MD036": false,
+
+  // Table column-count strictness: off (DX > pedantry on wide tables).
+  "MD060": false,
+
+  // Duplicate headings: allowed only across different sections, never as
+  // siblings under the same parent.
+  "MD024": { "siblings_only": true },
+
+  // Every fenced code block MUST declare a language (use `text` if none fits).
+  "MD040": true
+}
