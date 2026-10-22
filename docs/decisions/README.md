@@ -14,6 +14,7 @@ Questions nobody has decided yet are in
 |---|---|---|
 | [0000](0000-record-decisions-in-madr.md) | Record decisions as MADR 4.0 Bare Minimal files, with a backlog beside them | accepted |
 | [0001](0001-static-web-app-free-tier-with-named-environment.md) | Host on a Free-tier Azure Static Web App, with a named environment for a readable URL | accepted |
+| [0002](0002-play-youtube-videos-only-when-picked.md) | Play YouTube videos inline, loading YouTube only when a visitor picks one | accepted |
 
 ## Adding one
 
