@@ -17,6 +17,16 @@ at which the text fits both ways, wrapping only between words. It refits
 whenever the window changes size. **Full screen** uses the whole display;
 **Back**, `Esc` or the browser's Back button returns to the editor.
 
+To link straight to big text, put it in `?msg=`:
+<https://kind-flower-026e62e0f-embiggenizer.eastus2.6.azurestaticapps.net/?msg=Go+to+dinner+at+7pm+or+7:30%3F>.
+The page's **Back** or `Esc` then opens the editor with the text in it;
+the browser's Back button returns to wherever the link was opened from.
+As in any query
+string, `+` stands for a space and `%0A` for a line break, and `&`, `#` and
+`+` themselves must be written `%26`, `%23` and `%2B`. In a link you share,
+write spaces as `+` and a final `?` as `%3F`. Chat apps often end a link at
+its first space and drop a final `?`.
+
 Below the editor, three short videos explain where "embiggen" comes from.
 Nothing loads from YouTube until a visitor picks one, and then it plays in
 the page from `youtube-nocookie.com`
@@ -24,7 +34,8 @@ the page from `youtube-nocookie.com`
 
 It is one static page in [`src/`](src/): HTML, CSS and JavaScript with no
 build step, no dependencies and no backend. Nothing you type leaves the
-browser.
+browser. Text in a `?msg=` link is part of the URL, so it reaches the web
+server like any URL does.
 
 ## Run it locally
 
