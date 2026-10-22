@@ -3,6 +3,7 @@
 "use strict";
 
 const IDLE_MS = 2000;
+const STATUS_MS = 2500;
 
 const editor = document.getElementById("editor");
 const form = document.getElementById("form");
@@ -12,6 +13,8 @@ const stage = document.getElementById("stage");
 const big = document.getElementById("big");
 const backButton = document.getElementById("back");
 const fullscreenButton = document.getElementById("fullscreen");
+const copyLinkButton = document.getElementById("copy-link");
+const copyStatus = document.getElementById("copy-status");
 const videoChoices = document.querySelectorAll(".video-choice");
 const player = document.getElementById("player");
 const playerFrame = document.getElementById("player-frame");
@@ -19,6 +22,7 @@ const closeVideoButton = document.getElementById("close-video");
 
 let idleTimer = 0;
 let fitFrame = 0;
+let statusTimer = 0;
 
 function fitsAt(size, availableHeight) {
   big.style.fontSize = `${size}px`;
@@ -204,6 +208,30 @@ closeVideoButton.addEventListener("click", closeVideo);
 new ResizeObserver(() => {
   if (isShowing()) scheduleFit();
 }).observe(stage);
+
+// URLSearchParams writes spaces as + and escapes ?, & and #, so the link
+// survives chat apps that end a link at a space or drop a final "?".
+function linkFor(text) {
+  return `${location.origin}${location.pathname}?${new URLSearchParams({ msg: text })}`;
+}
+
+function announce(message) {
+  copyStatus.textContent = message;
+  clearTimeout(statusTimer);
+  statusTimer = setTimeout(() => {
+    copyStatus.textContent = "";
+  }, STATUS_MS);
+}
+
+if (navigator.clipboard && navigator.clipboard.writeText) {
+  copyLinkButton.hidden = false;
+  copyLinkButton.addEventListener("click", () => {
+    navigator.clipboard.writeText(linkFor(big.textContent)).then(
+      () => announce("Link copied"),
+      () => announce("Couldn’t copy the link"),
+    );
+  });
+}
 
 if (document.fullscreenEnabled) {
   fullscreenButton.hidden = false;

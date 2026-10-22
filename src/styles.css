@@ -294,6 +294,24 @@ footer a {
   color: var(--control-fg);
 }
 
+/* Sits under the buttons, outside the row, so its empty state takes no
+   room. It stays in the page while empty so screen readers announce it. */
+.copy-status {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin: 0.5rem 0 0;
+  white-space: nowrap;
+}
+
+.copy-status:not(:empty) {
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.5rem;
+  background: var(--control-bg);
+  color: var(--control-fg);
+  font-weight: 600;
+}
+
 /* After a moment without input the controls fade away so they never cover
    the text; any pointer or key input brings them back. */
 .stage.idle {
