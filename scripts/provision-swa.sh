@@ -26,7 +26,7 @@ the Embiggenizer. Existing resources are left as they are.
 Lifecycle: rare — run once per environment; idempotent, safe to re-run.
 
 Options:
-  --subscription <id>  Azure subscription (default: EffAz-Prod, $DEFAULT_SUBSCRIPTION)
+  --subscription <id>  Azure subscription (default: $DEFAULT_SUBSCRIPTION_NAME, $DEFAULT_SUBSCRIPTION)
   --dry-run            Show what would be created without creating it
   -h, --help           Show this help
 

@@ -27,7 +27,7 @@ Checked 2026-10-22:
 ## Re-check
 
 ```bash
-az staticwebapp environment list --subscription f906a716-7602-4c74-bb5b-f98fbc385b0c \
+az staticwebapp environment list --subscription 32c6835c-b37c-47d6-b34a-fbd262a70ef9 \
   --resource-group rg-embiggenizer --name swa-embiggenizer \
   --query "[].[buildId, hostname]" --output tsv
 ```

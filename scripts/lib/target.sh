@@ -5,8 +5,8 @@
 #
 # shellcheck disable=SC2034  # every variable here is read by a sourcing script
 
-# EffAz-Prod, the subscription the other CrankingAI static sites use.
-DEFAULT_SUBSCRIPTION="f906a716-7602-4c74-bb5b-f98fbc385b0c"
+DEFAULT_SUBSCRIPTION_NAME="EffAz-Run"
+DEFAULT_SUBSCRIPTION="32c6835c-b37c-47d6-b34a-fbd262a70ef9"
 SUBSCRIPTION="$DEFAULT_SUBSCRIPTION"
 
 RESOURCE_GROUP="rg-embiggenizer"

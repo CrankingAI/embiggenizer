@@ -35,7 +35,7 @@ and "$SLUG_ENV" environments, then check that each one serves the page.
 Lifecycle: routine — safe to re-run; use --dry-run to preview.
 
 Options:
-  --subscription <id>  Azure subscription (default: EffAz-Prod, $DEFAULT_SUBSCRIPTION)
+  --subscription <id>  Azure subscription (default: $DEFAULT_SUBSCRIPTION_NAME, $DEFAULT_SUBSCRIPTION)
   --dry-run            Show what would be deployed without deploying
   -h, --help           Show this help
 

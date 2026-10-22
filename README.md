@@ -28,7 +28,7 @@ python3 -m http.server --directory src 8765   # then open http://localhost:8765/
 
 ## Deploy
 
-Hosted on an Azure Static Web App (Free tier) in the EffAz-Prod subscription.
+Hosted on an Azure Static Web App (Free tier) in the EffAz-Run subscription.
 Why, and why there are two URLs:
 [ADR-0001](docs/decisions/0001-static-web-app-free-tier-with-named-environment.md).
 
