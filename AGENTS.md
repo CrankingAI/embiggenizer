@@ -37,7 +37,7 @@ docs/decision-backlog/  questions nobody has decided yet
 
 1. `python3 -m http.server --directory src 8765` and try it at
    <http://localhost:8765/>: short text, a long word, line breaks, Esc and
-   Back, a narrow window. This server sends none of the config's headers,
+   Back, a narrow window, a `?msg=` link (then Back, Forward and reload). This server sends none of the config's headers,
    so check the videos on a deployed URL, where the CSP applies.
 2. `./scripts/deploy-site.sh --dry-run`, then `./scripts/deploy-site.sh`,
    which smoke-tests both URLs.

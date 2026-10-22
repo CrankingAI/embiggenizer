@@ -91,10 +91,16 @@ function hide() {
   textInput.focus();
 }
 
-// Leaving the stage always goes through history, so the browser's Back
-// button and gesture behave the same as the on-screen Back button and Esc.
+// Leaving the stage goes through history, so the browser's Back button and
+// gesture behave the same as the on-screen Back button and Esc. A page opened
+// from a ?msg= link has no editor entry behind it, so the on-screen Back
+// turns the link's entry into the editor, dropping ?msg= from the address.
 function goBack() {
-  if (history.state && history.state.embiggenized) {
+  const state = history.state || {};
+  if (state.linked) {
+    history.replaceState(null, "", location.pathname);
+    hide();
+  } else if (state.embiggenized) {
     history.back();
   } else {
     hide();
@@ -213,10 +219,25 @@ if (document.fullscreenEnabled) {
   });
 }
 
-// A reload while the text was showing starts in the editor, so drop the
-// stale history entry rather than leaving Back pointed at nothing.
-if (history.state && history.state.embiggenized) {
-  history.replaceState(null, "");
-}
+// A link such as /?msg=Hello opens straight to the big text, which is also
+// put in the editor. As in any query string, + is a space, and &, # and +
+// themselves must be written %26, %23 and %2B. The link's own history entry
+// shows the text, so the browser's Back returns to wherever the link was
+// opened from. Adding an entry here instead would not work: Chrome's Back
+// button skips past a page that adds history entries before the visitor has
+// clicked or typed anything.
+const linkedText = (new URLSearchParams(location.search).get("msg") || "").trim();
 
-textInput.focus();
+if (linkedText) {
+  textInput.value = linkedText;
+  big.textContent = linkedText;
+  history.replaceState({ embiggenized: true, linked: true }, "");
+  enter();
+} else {
+  // A reload while the text was showing starts in the editor, so drop the
+  // stale history entry rather than leaving Back pointed at nothing.
+  if (history.state && history.state.embiggenized) {
+    history.replaceState(null, "");
+  }
+  textInput.focus();
+}
