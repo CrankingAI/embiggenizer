@@ -2,7 +2,8 @@
 
 You give some text and it displays it as large as possible within available
 screen real estate. The word "embiggen" comes from the 1996 Simpsons episode
-["Lisa the Iconoclast"](https://www.imdb.com/title/tt0701155/).
+["Lisa the Iconoclast"](https://www.imdb.com/title/tt0701155/), which made
+up "cromulent" in the same scene.
 
 **Live:** <https://kind-flower-026e62e0f-embiggenizer.eastus2.6.azurestaticapps.net/>
 (also at the production hostname,
