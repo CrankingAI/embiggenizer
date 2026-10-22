@@ -17,6 +17,11 @@ at which the text fits both ways, wrapping only between words. It refits
 whenever the window changes size. **Full screen** uses the whole display;
 **Back**, `Esc` or the browser's Back button returns to the editor.
 
+Below the editor, three short videos explain where "embiggen" comes from.
+Nothing loads from YouTube until a visitor picks one, and then it plays in
+the page from `youtube-nocookie.com`
+([ADR-0002](docs/decisions/0002-play-youtube-videos-only-when-picked.md)).
+
 It is one static page in [`src/`](src/): HTML, CSS and JavaScript with no
 build step, no dependencies and no backend. Nothing you type leaves the
 browser.

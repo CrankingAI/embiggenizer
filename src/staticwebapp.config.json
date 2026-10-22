@@ -1,7 +1,7 @@
 {
   "globalHeaders": {
-    "Content-Security-Policy": "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'",
-    "Permissions-Policy": "camera=(), microphone=(), geolocation=(), fullscreen=(self)",
+    "Content-Security-Policy": "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; frame-src https://www.youtube-nocookie.com; base-uri 'none'; form-action 'none'; frame-ancestors 'none'",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=(), fullscreen=(self \"https://www.youtube-nocookie.com\")",
     "Referrer-Policy": "no-referrer",
     "Strict-Transport-Security": "max-age=31536000",
     "X-Content-Type-Options": "nosniff"

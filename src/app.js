@@ -12,6 +12,10 @@ const stage = document.getElementById("stage");
 const big = document.getElementById("big");
 const backButton = document.getElementById("back");
 const fullscreenButton = document.getElementById("fullscreen");
+const videoChoices = document.querySelectorAll(".video-choice");
+const player = document.getElementById("player");
+const playerFrame = document.getElementById("player-frame");
+const closeVideoButton = document.getElementById("close-video");
 
 let idleTimer = 0;
 let fitFrame = 0;
@@ -59,7 +63,10 @@ function isShowing() {
   return !stage.hidden;
 }
 
+// A video left playing would go on behind the text with its controls hidden,
+// so it stops.
 function enter() {
+  stopVideo();
   editor.hidden = true;
   stage.hidden = false;
   fit();
@@ -142,6 +149,51 @@ window.addEventListener("popstate", (event) => {
     hide();
   }
 });
+
+// Nothing loads from YouTube until the visitor picks a video. The page sends
+// no referrer, but YouTube's player refuses to start without one (error
+// 153), so this frame alone sends the site's origin, never the path.
+function playVideo(choice) {
+  const frame = document.createElement("iframe");
+  frame.src =
+    `https://www.youtube-nocookie.com/embed/${choice.dataset.video}` +
+    "?autoplay=1&playsinline=1&rel=0";
+  frame.title = choice.querySelector(".video-title").textContent;
+  frame.allow = "autoplay; encrypted-media; fullscreen; picture-in-picture";
+  frame.referrerPolicy = "strict-origin-when-cross-origin";
+  playerFrame.replaceChildren(frame);
+  player.hidden = false;
+  for (const other of videoChoices) {
+    other.setAttribute("aria-pressed", String(other === choice));
+  }
+}
+
+// Removing the frame stops the video.
+function stopVideo() {
+  playerFrame.replaceChildren();
+  player.hidden = true;
+  for (const choice of videoChoices) {
+    choice.setAttribute("aria-pressed", "false");
+  }
+}
+
+function closeVideo() {
+  const playing = document.querySelector('.video-choice[aria-pressed="true"]');
+  stopVideo();
+  if (playing) playing.focus();
+}
+
+for (const choice of videoChoices) {
+  choice.addEventListener("click", () => {
+    if (choice.getAttribute("aria-pressed") === "true") {
+      closeVideo();
+    } else {
+      playVideo(choice);
+    }
+  });
+}
+
+closeVideoButton.addEventListener("click", closeVideo);
 
 new ResizeObserver(() => {
   if (isShowing()) scheduleFit();

@@ -20,7 +20,9 @@ docs/decision-backlog/  questions nobody has decided yet
   Adding any of them is a decision: record it in `docs/decisions/`.
 - **Keep the CSP strict.** No inline scripts or styles, no third-party
   origins. A change that needs one updates `staticwebapp.config.json` and
-  says why.
+  says why. The one exception is YouTube's video frame, which loads only
+  when a visitor picks a video
+  ([ADR-0002](docs/decisions/0002-play-youtube-videos-only-when-picked.md)).
 - **Accessible:** keyboard-operable, visible focus, labelled controls,
   `prefers-reduced-motion` respected (WCAG 2.2 AA).
 - **Scripts** follow DevPartners agent-kit's `devp-scripts-convention`:
@@ -35,6 +37,7 @@ docs/decision-backlog/  questions nobody has decided yet
 
 1. `python3 -m http.server --directory src 8765` and try it at
    <http://localhost:8765/>: short text, a long word, line breaks, Esc and
-   Back, a narrow window.
+   Back, a narrow window. This server sends none of the config's headers,
+   so check the videos on a deployed URL, where the CSP applies.
 2. `./scripts/deploy-site.sh --dry-run`, then `./scripts/deploy-site.sh`,
    which smoke-tests both URLs.
