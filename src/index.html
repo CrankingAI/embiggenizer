@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Embiggenizer</title>
+  <meta name="description" content="Type some text, press Embiggenize, and see it as large as your screen allows.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main id="editor">
+    <h1>Embiggenizer</h1>
+    <p class="tagline">Type something. See it as big as your screen allows.</p>
+
+    <form id="form" novalidate>
+      <label for="text">Your text</label>
+      <textarea id="text" name="text" rows="4" placeholder="Hello!" autocomplete="off" aria-describedby="hint shortcuts"></textarea>
+      <p id="hint" class="hint" aria-live="polite"></p>
+      <button type="submit" class="primary">Embiggenize</button>
+      <p id="shortcuts" class="shortcuts">
+        Shortcuts: <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>⌘</kbd>+<kbd>Enter</kbd> on a Mac) to embiggenize, <kbd>Esc</kbd> to come back.
+      </p>
+    </form>
+
+    <noscript><p class="hint">The Embiggenizer needs JavaScript to measure your screen.</p></noscript>
+
+    <footer>
+      <blockquote>“A noble spirit embiggens the smallest man.”</blockquote>
+    </footer>
+  </main>
+
+  <section id="stage" class="stage" tabindex="-1" aria-label="Embiggenized text" hidden>
+    <div id="big" class="big"></div>
+    <div class="controls">
+      <button id="fullscreen" type="button" hidden>Full screen</button>
+      <button id="back" type="button">Back</button>
+    </div>
+  </section>
+</body>
+</html>

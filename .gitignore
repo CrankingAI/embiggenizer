@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Editor/OS cruft
+*.swp
+*~
+
+# Local secrets, if anyone ever adds them
+.env
+.env.*
+
+# Static Web Apps CLI working files
+.swa/
+swa-cli.config.json
+node_modules/
