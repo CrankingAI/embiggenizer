@@ -29,9 +29,8 @@ to a named environment called `embiggenizer`", because Static Web Apps was
 the requested host, and a named environment's hostname contains its name:
 `kind-flower-026e62e0f-embiggenizer.eastus2.6.azurestaticapps.net`.
 
-- Subscription EffAz-Prod, region `eastus2`, resource group
-  `rg-embiggenizer`, app `swa-embiggenizer`, as the other CrankingAI static
-  sites are.
+- Subscription EffAz-Run, region `eastus2`, resource group
+  `rg-embiggenizer`, app `swa-embiggenizer`.
 - No build step and no dependencies: `src/` is uploaded as it is.
 - `scripts/deploy-site.sh` uploads the same files to both environments on
   every deploy, so they never differ.
@@ -56,3 +55,5 @@ one serves the page.
   [../decision-backlog/custom-domain.md](../decision-backlog/custom-domain.md).
 - Named environments:
   <https://learn.microsoft.com/azure/static-web-apps/named-environments>
+- 2026-10-22: moved from EffAz-Prod to EffAz-Run at the owner's request,
+  by an Azure resource move, which kept both hostnames.
