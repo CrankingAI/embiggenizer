@@ -146,9 +146,22 @@ footer {
   color: var(--muted);
 }
 
+figure {
+  margin: 0;
+}
+
 blockquote {
   margin: 0;
   font-style: italic;
+}
+
+figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9375rem;
+}
+
+footer a {
+  color: var(--accent);
 }
 
 /* --- Stage: the embiggened text --- */
@@ -215,7 +228,9 @@ blockquote {
   pointer-events: none;
 }
 
-.stage.idle .controls:focus-within {
+/* Keyboard focus keeps them visible; the focus a mouse click leaves on a
+   button does not, or they would never fade after "Full screen". */
+.stage.idle .controls:has(:focus-visible) {
   opacity: 1;
   pointer-events: auto;
 }
