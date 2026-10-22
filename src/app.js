@@ -63,7 +63,10 @@ function isShowing() {
   return !stage.hidden;
 }
 
+// A video left playing would go on behind the text with its controls hidden,
+// so it stops.
 function enter() {
+  stopVideo();
   editor.hidden = true;
   stage.hidden = false;
   fit();
@@ -165,14 +168,18 @@ function playVideo(choice) {
   }
 }
 
-// Removing the frame stops the video; focus returns to the video's button.
-function closeVideo() {
-  const playing = document.querySelector('.video-choice[aria-pressed="true"]');
+// Removing the frame stops the video.
+function stopVideo() {
   playerFrame.replaceChildren();
   player.hidden = true;
   for (const choice of videoChoices) {
     choice.setAttribute("aria-pressed", "false");
   }
+}
+
+function closeVideo() {
+  const playing = document.querySelector('.video-choice[aria-pressed="true"]');
+  stopVideo();
   if (playing) playing.focus();
 }
 

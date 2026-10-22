@@ -35,7 +35,9 @@ load from YouTube.
 - The page keeps `Referrer-Policy: no-referrer`. Only the video frame sets
   `referrerpolicy="strict-origin-when-cross-origin"`, so YouTube gets the
   site's origin and never the path.
-- The frame is removed when the video is closed, which stops it.
+- The frame is removed, which stops the video, when the visitor closes it
+  or embiggenizes text, since the video's controls are hidden behind the
+  text.
 
 ### Consequences
 
