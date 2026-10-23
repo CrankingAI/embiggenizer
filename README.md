@@ -45,6 +45,11 @@ the URL, so it reaches the web server like any URL does.
 python3 -m http.server --directory src 8765   # then open http://localhost:8765/
 ```
 
+The icon is [`src/favicon.svg`](src/favicon.svg). Browsers and home screens
+that don't take SVG icons get `favicon.ico` and `apple-touch-icon.png`,
+which are committed copies of it. After changing the SVG, remake them with
+`./scripts/build-icons.sh` (it needs Chrome and ImageMagick).
+
 ## Deploy
 
 Hosted on an Azure Static Web App (Free tier) in the EffAz-Run subscription.

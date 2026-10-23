@@ -1,1 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#1d4ed8"/><text x="32" y="50" font-family="system-ui, sans-serif" font-size="48" font-weight="800" fill="#fff" text-anchor="middle">E</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- A 3D "E" bursting out of a comic-book sunburst. After editing, run
+       scripts/build-icons.sh to remake favicon.ico and apple-touch-icon.png. -->
+  <defs>
+    <clipPath id="tile"><rect width="64" height="64" rx="14"/></clipPath>
+    <radialGradient id="glow" r="72%">
+      <stop offset="0" stop-color="#fff7b0"/>
+      <stop offset=".45" stop-color="#ffd21f"/>
+      <stop offset="1" stop-color="#ff7a00"/>
+    </radialGradient>
+    <linearGradient id="face" x2="0" y2="1">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <path id="e" d="M14 10H45V18H25V26H41V34H25V42H45V50H14Z"/>
+    <!-- The E's depth: copies of it stepping down and to the right. -->
+    <g id="depth">
+      <use href="#e" x=".5" y=".5"/>
+      <use href="#e" x="1" y="1"/>
+      <use href="#e" x="1.5" y="1.5"/>
+      <use href="#e" x="2" y="2"/>
+      <use href="#e" x="2.5" y="2.5"/>
+      <use href="#e" x="3" y="3"/>
+    </g>
+  </defs>
+  <g clip-path="url(#tile)">
+    <rect width="64" height="64" fill="url(#glow)"/>
+    <path fill="#fff" opacity=".4" d="M32 32L32 -28L44 -27ZM32 32L55 -23L65 -18ZM32 32L74 -10L82 -1ZM32 32L87 9L91 20ZM32 32L92 32L91 44ZM32 32L87 55L82 65ZM32 32L74 74L65 82ZM32 32L55 87L44 91ZM32 32L32 92L20 91ZM32 32L9 87L-1 82ZM32 32L-10 74L-18 65ZM32 32L-23 55L-27 44ZM32 32L-28 32L-27 20ZM32 32L-23 9L-18 -1ZM32 32L-10 -10L-1 -18ZM32 32L9 -23L20 -27Z"/>
+  </g>
+  <g fill="#fff" stroke="#fff" stroke-width="4" stroke-linejoin="round">
+    <use href="#e"/>
+    <use href="#depth"/>
+  </g>
+  <use href="#depth" fill="#0b1a4a"/>
+  <use href="#e" fill="url(#face)"/>
+  <path fill="#fff" d="M53 3Q53 10 60 10Q53 10 53 17Q53 10 46 10Q53 10 53 3ZM58 19Q58 22 61 22Q58 22 58 25Q58 22 55 22Q58 22 58 19Z"/>
+</svg>
