@@ -8,7 +8,8 @@ largest size that fits the screen. See [README.md](README.md).
 ```text
 src/                 the whole site, uploaded as-is (no build step)
   staticwebapp.config.json   security headers, including a strict CSP
-scripts/             provision-swa.sh (once), deploy-site.sh (each release)
+scripts/             provision-swa.sh (once), deploy-site.sh (each release),
+                     build-icons.sh (after editing src/favicon.svg)
   lib/target.sh      subscription, resource group and app names
 docs/decisions/      decision records; read before changing what they cover
 docs/decision-backlog/  questions nobody has decided yet
