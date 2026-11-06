@@ -12,7 +12,7 @@ custom domain)
 
 ## How it works
 
-Type text, press **Embiggenize** (or `Ctrl+Enter`, `⌘+Enter` on a Mac),
+Type text, press **Embiggenize It** (or `Ctrl+Enter`, `⌘+Enter` on a Mac),
 and the text fills the window. A binary search finds the largest font size
 at which the text fits both ways, wrapping only between words. It refits
 whenever the window changes size. **Copy link** copies a link that opens
